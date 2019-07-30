@@ -5,8 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './models/user.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { UserService } from './user/user.service';
-import { AuthService } from './auth/auth.service';
-
+import { UserController } from './user/user.controller';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -23,7 +22,7 @@ import { AuthService } from './auth/auth.service';
       secretOrPrivateKey:  'secret123',
   }),
   ],
-  controllers: [AppController],
-  providers: [AppService, UserService, AuthService],
+  controllers: [AppController, UserController],
+  providers: [AppService, UserService],
 })
 export class AppModule {}

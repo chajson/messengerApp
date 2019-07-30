@@ -10,12 +10,8 @@ import { InjectRepository } from '@nestjs/typeorm';
             private userRepository: Repository<User>,
         ) { }
 
-        async  findByEmail(email: string): Promise<User> {
-            return await this.userRepository.findOne({
-                where: {
-                    email,
-                },
-            });
+        async findAll(): Promise<User[]> {
+            return await this.userRepository.find();
         }
 
         async  create(user: User): Promise<User> {
